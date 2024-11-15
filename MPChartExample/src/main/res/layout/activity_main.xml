@@ -3,6 +3,7 @@
     android:id="@+id/listView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:dividerHeight="5dp"
     android:scrollbarFadeDuration="0">
 
 </ListView>

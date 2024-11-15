@@ -3,6 +3,8 @@ package com.xxmassdeveloper.mpchartexample.custom;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.components.MarkerView;
@@ -11,6 +13,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
+import com.xxmassdeveloper.mpchartexample.LineChartActivity1;
 import com.xxmassdeveloper.mpchartexample.R;
 
 /**
@@ -20,7 +23,7 @@ import com.xxmassdeveloper.mpchartexample.R;
  */
 @SuppressLint("ViewConstructor")
 public class MyMarkerView extends MarkerView {
-
+    private final static String LOG_TAG = MyMarkerView.class.getSimpleName();
     private final TextView tvContent;
 
     public MyMarkerView(Context context, int layoutResource) {
@@ -33,7 +36,7 @@ public class MyMarkerView extends MarkerView {
     // content (user-interface)
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-
+        Log.i(LOG_TAG, "refreshContent() called");
         if (e instanceof CandleEntry) {
 
             CandleEntry ce = (CandleEntry) e;

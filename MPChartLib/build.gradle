@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.philjay'
+//group='com.github.philjay'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    namespace 'com.github.mikephil.charting'
+    compileSdk 34
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdk 24
+        targetSdk 34
         versionCode 3
         versionName '3.1.0'
     }
@@ -18,17 +18,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    testOptions {
-        unitTests.returnDefaultValues = true // this prevents "not mocked" error
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+/*    testOptions {
+        unitTests.returnDefaultValues = true // this prevents "not mocked" error
+    }*/
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.0.0'
-    testImplementation 'junit:junit:4.12'
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
 }
 
-task sourcesJar(type: Jar) {
+/*task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
@@ -48,4 +55,4 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
-}
+}*/
